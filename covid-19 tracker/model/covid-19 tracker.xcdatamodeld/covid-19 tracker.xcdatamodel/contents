@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E266" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Favorites" representedClassName="Favorites" syncable="YES" codeGenerationType="class">
+        <attribute name="countryName" attributeType="String"/>
+        <attribute name="id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isFavorite" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="province" attributeType="String"/>
+        <relationship name="locations" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Locations_data" inverseName="favoriteCountries" inverseEntity="Locations_data"/>
+    </entity>
+    <entity name="Location_extra_data" representedClassName="Location_extra_data" syncable="YES" codeGenerationType="class">
+        <attribute name="cached_location_extra_response" optional="YES" attributeType="String"/>
+        <attribute name="countryImage" optional="YES" attributeType="Binary"/>
+        <attribute name="id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="locations" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Locations_data" inverseName="extra_data" inverseEntity="Locations_data"/>
+    </entity>
+    <entity name="Locations_data" representedClassName="Locations_data" syncable="YES" codeGenerationType="class">
+        <attribute name="cached_location_response" attributeType="String"/>
+        <attribute name="id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="extra_data" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Location_extra_data" inverseName="locations" inverseEntity="Location_extra_data"/>
+        <relationship name="favoriteCountries" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Favorites" inverseName="locations" inverseEntity="Favorites"/>
+    </entity>
+    <elements>
+        <element name="Favorites" positionX="-406.171875" positionY="213.47265625" width="128" height="118"/>
+        <element name="Location_extra_data" positionX="-105.76171875" positionY="31.140625" width="128" height="103"/>
+        <element name="Locations_data" positionX="-417.67578125" positionY="44" width="128" height="103"/>
+    </elements>
+</model>
